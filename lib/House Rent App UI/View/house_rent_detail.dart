@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Model/house_model.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Utils/colors.dart';
+import '../Model/house_model.dart';
+import '../Utils/colors.dart';
 
 class HouseRentDetail extends StatelessWidget {
   final HouseRoom houseRoom;
@@ -21,7 +21,7 @@ class HouseRentDetail extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 child: Hero(
                   tag: houseRoom.image,
-                  child: Image.asset(
+                  child: Image.network(
                     houseRoom.image,
                     fit: BoxFit.cover,
                     height: size.height * 0.43,
@@ -107,7 +107,7 @@ class HouseRentDetail extends StatelessWidget {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.red.withOpacity(0.8),
+                            color: Colors.red.withValues(alpha: 0.8),
                             blurRadius: 10,
                             offset: const Offset(0, 5))
                       ]),
@@ -143,7 +143,7 @@ class HouseRentDetail extends StatelessWidget {
                   houseRoom.place,
                   style: TextStyle(
                     height: 1.2,
-                    color: kFontColor.withOpacity(0.7),
+                    color: kFontColor.withValues(alpha: 0.7),
                     fontWeight: FontWeight.w500,
                     fontSize: 17,
                   ),
@@ -174,7 +174,7 @@ class HouseRentDetail extends StatelessWidget {
                     "Too much work. Let's burn it and say we dumped it in the sewer. Oh, I don't have time for this. I have to go",
                     style: TextStyle(
                       fontSize: 15,
-                      color: kFontColor.withOpacity(0.7),
+                      color: kFontColor.withValues(alpha: 0.7),
                     ),
                   ),
                   const Text(
@@ -192,11 +192,10 @@ class HouseRentDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      roomInfo("image/house-rent/icon1.png", houseRoom.height),
-                      roomInfo("image/house-rent/icon2.png", houseRoom.width),
-                      roomInfo("image/house-rent/icon3.png",
-                          "${houseRoom.bath} Baths"),
-                      roomInfo("image/house-rent/icon4.png", houseRoom.type),
+                      roomInfo(Icons.height, houseRoom.height),
+                      roomInfo(Icons.aspect_ratio, houseRoom.width),
+                      roomInfo(Icons.bathtub, "${houseRoom.bath} Baths"),
+                      roomInfo(Icons.home, houseRoom.type),
                     ],
                   ),
                   SizedBox(height: size.height * 0.02),
@@ -210,7 +209,7 @@ class HouseRentDetail extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.all(22),
                         child: Text(
-                          "Book The Appartment",
+                          "Book The Apartment",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -229,7 +228,7 @@ class HouseRentDetail extends StatelessWidget {
     );
   }
 
-  Container roomInfo(image, value) {
+  Container roomInfo(IconData icon, String value) {
     return Container(
       height: 100,
       width: 80,
@@ -240,9 +239,10 @@ class HouseRentDetail extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            image,
-            height: 40,
+          Icon(
+            icon,
+            size: 35,
+            color: kBlueTextColor,
           ),
           const SizedBox(height: 7),
           Text(value)

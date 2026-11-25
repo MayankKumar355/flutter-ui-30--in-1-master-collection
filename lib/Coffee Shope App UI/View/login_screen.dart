@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Coffee%20Shope%20App%20UI/Utils/colors.dart';
-import 'package:flutter_example/Flutter%20UI/Coffee%20Shope%20App%20UI/View/coffee_shop_home_screen.dart';
+
+import '../../Coffee Maker/consts.dart';
+import '../Utils/colors.dart' hide backgroundColor, buttonColor;
+import 'coffee_shop_home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -18,7 +20,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 50,
                   width: 90,
-                  child: Image.asset("image/coffee-shop-image/logo.png"),
+                  child: Image.network("https://cdn-icons-png.flaticon.com/512/2935/2935413.png"),
                 ),
                 const SizedBox(height: 5),
                 const Text(
@@ -93,19 +95,19 @@ class LoginScreen extends StatelessWidget {
                 socialIconButton(
                   Colors.white,
                   "https://cdn.freebiesupply.com/logos/large/2x/google-icon-logo-png-transparent.png",
-                  "Connect with Googel",
+                  "Connect with Google",
                   Colors.black,
                 ),
                 const SizedBox(height: 20),
                 socialIconButton(
                   facebookButtondColor,
                   "https://static.vecteezy.com/system/resources/previews/021/495/960/original/facebook-logo-icon-free-png.png",
-                  "Connect with Googel",
+                  "Connect with Facebook",
                   Colors.white,
                 ),
                 const SizedBox(height: 25),
                 Expanded(
-                  child: Image.asset("image/coffee-shop-image/LoginCoffee.png"),
+                  child: Image.network("https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600"),
                 ),
               ],
             ),
@@ -115,7 +117,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Container socialIconButton(color, image, title, textColor) {
+  Container socialIconButton(Color color, String image, String title, Color textColor) {
     return Container(
       height: 50,
       decoration: BoxDecoration(

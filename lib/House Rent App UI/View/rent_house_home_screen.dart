@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Model/house_model.dart';
-
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Utils/colors.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/View/Widget/horizontal_scroll.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/View/Widget/popular_place.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/View/house_rent_detail.dart';
+import '../Model/house_model.dart';
+import '../Utils/colors.dart';
+import 'Widget/horizontal_scroll.dart';
+import 'Widget/popular_place.dart';
+import 'house_rent_detail.dart';
 
 class HouseRentHomeScreen extends StatefulWidget {
   const HouseRentHomeScreen({super.key});
@@ -95,7 +94,7 @@ class _HouseRentHomeScreenState extends State<HouseRentHomeScreen> {
 
   Padding popularPlace() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white70,
@@ -114,8 +113,8 @@ class _HouseRentHomeScreenState extends State<HouseRentHomeScreen> {
             style: TextStyle(
               fontSize: 15,
               decoration: TextDecoration.underline,
-              decorationColor: kFontColor.withOpacity(0.7),
-              color: kFontColor.withOpacity(0.7),
+              decorationColor: kFontColor.withValues(alpha: 0.7),
+              color: kFontColor.withValues(alpha: 0.7),
             ),
           ),
         ),
@@ -176,7 +175,7 @@ class _HouseRentHomeScreenState extends State<HouseRentHomeScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: DropdownButton(
+                child: DropdownButton<String>(
                   icon: const Icon(
                     Icons.keyboard_arrow_down,
                     size: 25,
@@ -213,7 +212,7 @@ class _HouseRentHomeScreenState extends State<HouseRentHomeScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: DropdownButton(
+                child: DropdownButton<String>(
                   icon: const Icon(
                     Icons.keyboard_arrow_down,
                     size: 25,

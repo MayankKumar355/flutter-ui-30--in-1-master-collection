@@ -59,6 +59,10 @@ dependencies:
   flutter_slidable: ^3.1.2
   dotted_border: ^2.1.0
   card_swiper: ^3.0.1
+  audioplayers: ^6.8.1
+  provider: ^6.1.5+1
+  youtube_player_flutter: ^10.0.1
+  flutter_rating_stars: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -96,7 +100,12 @@ flutter:
     - assets/health/
     - assets/job-finder/
     - assets/plant-shop/
-    - assets/img/
+    - assets/audio.mp3
+    - assets/blogs/
+    - assets/pets-image/
+    - assets/images/
+    - assets/images1/
+    - assets/Image/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

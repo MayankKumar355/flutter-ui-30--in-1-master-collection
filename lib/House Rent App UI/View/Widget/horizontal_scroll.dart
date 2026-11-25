@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Model/house_model.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Utils/colors.dart';
+import 'package:live_stream_app/House Rent App UI/Model/house_model.dart';
+import 'package:live_stream_app/House Rent App UI/Utils/colors.dart';
 
 class DisplayItemsHorizontal extends StatelessWidget {
   final HouseRoom houseRoom;
@@ -22,7 +22,7 @@ class DisplayItemsHorizontal extends StatelessWidget {
             borderRadius: BorderRadius.circular(40),
             child: Hero(
               tag: houseRoom.image,
-              child: Image.asset(
+              child: Image.network(
                 houseRoom.image,
                 fit: BoxFit.cover,
                 height: 220,
@@ -76,7 +76,7 @@ class DisplayItemsHorizontal extends StatelessWidget {
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.red.withOpacity(0.5),
+                            color: Colors.red.withValues(alpha: 0.5),
                             blurRadius: 10,
                             offset: const Offset(0, 5),
                           ),

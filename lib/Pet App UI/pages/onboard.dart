@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/Utils/const.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/models/onboards_model.dart';
 
+import '../../Cinema App UI/consts.dart';
+import '../../Doctor Appoinment App/const.dart';
+import '../Utils/const.dart' hide black, buttonColor;
+import '../models/onboards_model.dart';
 import 'pets_home_screen.dart';
 
 class PetsOnBoardingScreen extends StatefulWidget {

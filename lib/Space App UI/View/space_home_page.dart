@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Space%20App%20UI/Model/category.dart';
-import 'package:flutter_example/Flutter%20UI/Space%20App%20UI/Model/image.dart';
+
+import '../Model/category.dart';
+import '../Model/image.dart';
 
 class SpaceHomePage extends StatefulWidget {
   const SpaceHomePage({super.key});

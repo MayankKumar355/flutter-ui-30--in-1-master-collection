@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Book%20%20App%20UI/Views/book_detail_screen.dart';
-import 'package:flutter_example/Flutter%20UI/Book%20%20App%20UI/models/book.dart';
+
+import '../models/book.dart';
+import 'book_detail_screen.dart';
 
 class BooksHome extends StatelessWidget {
   const BooksHome({super.key});

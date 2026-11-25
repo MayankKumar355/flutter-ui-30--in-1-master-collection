@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Bmi%20Calculator/provider.dart';
+import 'package:live_stream_app/Bmi%20Calculator/provider.dart';
 import 'package:provider/provider.dart';
 
 class BmiCalculator extends StatelessWidget {

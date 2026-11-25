@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'Football Live Score App/screens/main_screen.dart';
-import 'To Do App/todo_screen.dart';
-import 'Travel-Mobile-App/pages/onboard_travel.dart';
+import 'package:provider/provider.dart';
+import 'Bmi Calculator/provider.dart';
+import 'Joke Generator/Provider Services/provider_services.dart';
+import 'Universe UI/Screen/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,14 +17,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'To Do App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => BMIProvider()),
+        ChangeNotifierProvider(create: (_) => JokeProviderServices())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'To Do App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: const UniversHomePage(),
       ),
-      home: const TravelOnBoardingScreen(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Joke%20Generator/Provider%20Services/provider_services.dart';
 import 'package:provider/provider.dart';
+
+import '../Provider Services/provider_services.dart';
 
 class JokeScreen extends StatelessWidget {
   const JokeScreen({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Burger%20App%20UI/Model/burget_model.dart';
-import 'package:flutter_example/Flutter%20UI/Burger%20App%20UI/View/burger_items_details.dart';
+
+import '../Model/burget_model.dart';
+import 'burger_items_details.dart';
 
 class BurgerHomePage extends StatefulWidget {
   const BurgerHomePage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Model/house_model.dart';
-import 'package:flutter_example/Flutter%20UI/House%20Rent%20App%20UI/Utils/colors.dart';
+import '../../Model/house_model.dart';
+import '../../Utils/colors.dart';
 
 class PopularPlaceItems extends StatelessWidget {
   final HouseRoom houseRoom;
@@ -35,7 +35,7 @@ class PopularPlaceItems extends StatelessWidget {
                   bottom: 12,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
+                    child: Image.network(
                       houseRoom.image,
                       fit: BoxFit.cover,
                     ),
@@ -99,7 +99,7 @@ class PopularPlaceItems extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: kFontColor.withOpacity(0.6),
+                      color: kFontColor.withValues(alpha: 0.6),
                     ),
                   ),
                   Row(

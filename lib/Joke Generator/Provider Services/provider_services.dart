@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_example/Joke%20Generator/Model/model.dart';
 import 'package:http/http.dart' as http;
+
+import '../Model/model.dart';
 
 
 class JokeProviderServices extends ChangeNotifier {

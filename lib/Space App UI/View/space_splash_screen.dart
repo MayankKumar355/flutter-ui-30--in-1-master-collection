@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Space%20App%20UI/View/space_home_page.dart';
+import 'package:live_stream_app/Space%20App%20UI/View/space_home_page.dart';
 
 class SpaceSclashScreen extends StatefulWidget {
   const SpaceSclashScreen({super.key});

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/Utils/const.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/models/cats_model.dart';
 import 'package:readmore/readmore.dart';
+
+import '../../Cinema App UI/consts.dart';
+import '../Utils/const.dart' hide buttonColor;
+import '../models/cats_model.dart';
 
 class PetsDetailPage extends StatefulWidget {
   final Cat cat;

@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Coffee%20Shope%20App%20UI/Model/coffee_model.dart';
-import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import '../Model/coffee_model.dart';
 
 class CoffeeDetailScreen extends StatefulWidget {
   final Coffee coffee;
@@ -30,10 +31,10 @@ class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    "image/coffee-shop-image/menu.png",
-                    height: 40,
-                    width: 40,
+                  const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                    size: 35,
                   ),
                   const Icon(
                     Icons.shopping_cart_rounded,
@@ -67,10 +68,14 @@ class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
                     top: 50,
                     child: Hero(
                       tag: widget.coffee.image,
-                      child: Image.asset(
-                        widget.coffee.image,
-                        height: 300,
-                        width: 300,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          widget.coffee.image,
+                          height: 250,
+                          width: 250,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
@@ -126,23 +131,24 @@ class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SmoothStarRating(
-                                  rating: widget.coffee.star,
-                                  size: 25,
-                                  filledIconData: Icons.star,
-                                  halfFilledIconData: Icons.star_half,
-                                  defaultIconData: Icons.star_border,
-                                  starCount: 5,
-                                  color: Colors.amber,
-                                  
+                                RatingBar.builder(
+                                  initialRating: widget.coffee.star,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
                                   allowHalfRating: true,
-                                  spacing: 2,
-                                  onRatingChanged: (rating) {
+                                  itemCount: 5,
+                                  itemSize: 25,
+                                  itemBuilder: (context, _) => const Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {
                                     setState(() {
                                       widget.coffee.star = rating;
                                     });
                                   },
                                 ),
+                                const SizedBox(width: 8),
                                 Text(
                                   widget.coffee.star.toString(),
                                   style: const TextStyle(
@@ -246,7 +252,7 @@ class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
                                 const SizedBox(width: 10),
                                 CupertinoSwitch(
                                     value: switchValue,
-                                    activeColor: widget.coffee.color,
+                                    activeTrackColor: widget.coffee.color,
                                     onChanged: (value) {
                                       setState(() {
                                         switchValue = value;

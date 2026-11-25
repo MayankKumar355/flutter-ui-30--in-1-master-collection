@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Book%20%20App%20UI/models/book.dart';
-import 'package:flutter_rating/flutter_rating.dart';
+
+import '../models/book.dart';
 
 bool isCart = true;
 bool isFavorite = true;
@@ -274,7 +274,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     );
   }
 
-  Container moviMoreInfo(image, title, value) {
+  Container moviMoreInfo(String image, String title, String value) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -352,6 +352,35 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
           const SizedBox(width: 25),
         ],
       ),
+    );
+  }
+}
+
+class StarRating extends StatelessWidget {
+  final double rating;
+  final double size;
+  final Color color;
+
+  const StarRating({
+    super.key,
+    required this.rating,
+    this.size = 20,
+    this.color = Colors.amber,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: List.generate(5, (index) {
+        if (index < rating.floor()) {
+          return Icon(Icons.star, size: size, color: color);
+        } else if (index < rating && rating % 1 != 0) {
+          return Icon(Icons.star_half, size: size, color: color);
+        } else {
+          return Icon(Icons.star_border, size: size, color: color);
+        }
+      }),
     );
   }
 }

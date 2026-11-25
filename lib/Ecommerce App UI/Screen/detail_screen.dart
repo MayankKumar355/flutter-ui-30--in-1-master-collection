@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Model/product_model.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Utils/colors.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Utils/size.dart';
+import '../Model/product_model.dart';
+import '../Utils/colors.dart';
+import '../Utils/size.dart';
 
 class ProductDetail extends StatelessWidget {
   final Product product;
@@ -26,7 +26,7 @@ class ProductDetail extends StatelessWidget {
                 width: SizeConfig.screenWidth,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(
+                      image: NetworkImage(
                         product.image,
                       ),
                       fit: BoxFit.cover),
@@ -180,8 +180,7 @@ class ProductDetail extends StatelessWidget {
                     ),
                     Text(
                       product.description,
-                      // ignore: prefer_const_constructors
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 17,
                         color: Colors.black54,
                         fontWeight: FontWeight.w500,

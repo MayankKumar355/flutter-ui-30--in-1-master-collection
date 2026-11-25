@@ -35,7 +35,7 @@ List<HouseRoom> houseList = [
     width: "18.5",
     type: "Family",
     rating: "4.5",
-    image: "image/house-rent/image22.jpg",
+    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600",
     color: const Color(0xff7aafff)
   ),
   HouseRoom(
@@ -47,8 +47,8 @@ List<HouseRoom> houseList = [
     width: "18.5",
     type: "Family",
     rating: "4.5",
-    image: "image/house-rent/image9.jpg",
-      color: const Color(0xff63bed8)
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600",
+    color: const Color(0xff63bed8)
   ),
   HouseRoom(
     name: "Modern Scandinavian Apartment",
@@ -59,8 +59,8 @@ List<HouseRoom> houseList = [
     width: "20.0",
     type: "Family",
     rating: "4.0",
-    image: "image/house-rent/image3.jpg",
-     color: const Color(0xffad85e6)
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
+    color: const Color(0xffad85e6)
   ),
   HouseRoom(
     name: "2 BR Spacious",
@@ -71,8 +71,8 @@ List<HouseRoom> houseList = [
     width: "15",
     type: "Single",
     rating: "5.0",
-    image: "image/house-rent/image4.jpg",
-     color: const Color(0xff44aeb2)
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600",
+    color: const Color(0xff44aeb2)
   ),
   HouseRoom(
     name: "Senopati House",
@@ -83,8 +83,8 @@ List<HouseRoom> houseList = [
     width: "18",
     type: "Family",
     rating: "4.6",
-    image: "image/house-rent/image5.jpg",
-     color: const Color(0xffad85e6)
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600",
+    color: const Color(0xffad85e6)
   ),
   HouseRoom(
     name: "A Bohemian-style New Condo",
@@ -95,8 +95,8 @@ List<HouseRoom> houseList = [
     width: "22.2",
     type: "Single",
     rating: "4.0",
-    image: "image/house-rent/image6.jpg",
-     color: const Color(0xff44aeb2)
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600",
+    color: const Color(0xff44aeb2)
   ),
   HouseRoom(
     name: "Cozy & Hygienic Sudirman",
@@ -107,8 +107,8 @@ List<HouseRoom> houseList = [
     width: "15.5",
     type: "Family",
     rating: "4.0",
-    image: "image/house-rent/image7.jpg",
-     color: const Color(0xffad85e6)
+    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=600",
+    color: const Color(0xffad85e6)
   ),
   HouseRoom(
     name: "Offers HouseRoom Berjaya Times Square",
@@ -119,8 +119,8 @@ List<HouseRoom> houseList = [
     width: "14.5",
     type: "Single",
     rating: "5.0",
-    image: "image/house-rent/image8.jpg",
-        color: const Color(0xff7aafff)
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600",
+    color: const Color(0xff7aafff)
   ),
   HouseRoom(
     name: "The Way House",
@@ -131,8 +131,8 @@ List<HouseRoom> houseList = [
     width: "18.5",
     type: "Family",
     rating: "4.5",
-    image: "image/house-rent/image2.jpg",
-         color: const Color(0xff63bed8)
+    image: "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600",
+    color: const Color(0xff63bed8)
   ),
   HouseRoom(
     name: "Mega Family House",
@@ -143,20 +143,19 @@ List<HouseRoom> houseList = [
     width: "18.5",
     type: "Family",
     rating: "4.5",
-    image: "image/house-rent/image11.jpg",
-        color: const Color(0xff7aafff)
-
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
+    color: const Color(0xff7aafff)
   ),
   HouseRoom(
     name: "ZB ATIL Zook Home 9",
-    place: "Jakarta, IIndial",
+    place: "Jakarta, India",
     price: "550",
     bath: "1",
     height: "13.5",
     width: "19.5",
     type: "Family",
     rating: "5.0",
-    image: "image/house-rent/image1.jpg",
+    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600",
     color: const Color(0xff44aeb2)
   ),
 ];

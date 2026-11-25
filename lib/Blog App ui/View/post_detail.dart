@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Blog%20App%20ui/Model/blog_post_model.dart';
+
+import '../Model/blog_post_model.dart';
 
 class PostDetail extends StatelessWidget {
   final Post post;

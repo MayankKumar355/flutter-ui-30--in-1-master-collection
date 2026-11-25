@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Coffee%20Shope%20App%20UI/Model/coffee_model.dart';
-import 'package:flutter_example/Flutter%20UI/Coffee%20Shope%20App%20UI/Utils/colors.dart';
-import 'package:flutter_example/Flutter%20UI/Coffee%20Shope%20App%20UI/View/coffee_detail_screen.dart';
+
+import '../Model/coffee_model.dart';
+import '../Utils/colors.dart';
+import 'coffee_detail_screen.dart';
+
 
 class CoffeeShopHomeScreen extends StatefulWidget {
   const CoffeeShopHomeScreen({super.key});
@@ -23,8 +25,8 @@ class _CoffeeShopHomeScreenState extends State<CoffeeShopHomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Image.asset(
-                  "image/coffee-shop-image/shope_logo.png",
+                child: Image.network(
+                  "https://cdn-icons-png.flaticon.com/512/2935/2935413.png",
                   height: 70,
                 ),
               ),
@@ -91,7 +93,7 @@ class _CoffeeShopHomeScreenState extends State<CoffeeShopHomeScreen> {
                                       shape: BoxShape.circle,
                                       gradient: LinearGradient(
                                           colors: [
-                                            coffee.color.withOpacity(0.2),
+                                            coffee.color.withValues(alpha: 0.2),
                                             Colors.black54
                                           ],
                                           begin: Alignment.centerLeft,
@@ -108,9 +110,12 @@ class _CoffeeShopHomeScreenState extends State<CoffeeShopHomeScreen> {
                               Expanded(
                                 child: Hero(
                                   tag: coffee.image,
-                                  child: Image.asset(
-                                    coffee.image,
-                                    fit: BoxFit.cover,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.network(
+                                      coffee.image,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),

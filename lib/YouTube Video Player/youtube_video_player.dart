@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-// Define the main widget for the YouTube video player
 class YoutubeVideoPlayerFlutter extends StatefulWidget {
   const YoutubeVideoPlayerFlutter({super.key});
 
@@ -9,41 +8,46 @@ class YoutubeVideoPlayerFlutter extends StatefulWidget {
   State<YoutubeVideoPlayerFlutter> createState() =>
       _YoutubeVideoPlayerFlutterState();
 }
-
 class _YoutubeVideoPlayerFlutterState extends State<YoutubeVideoPlayerFlutter> {
-  //URL of th YouTube Video
   final videoURL = "https://youtu.be/yz2Iryuln2s?si=42oSyTnbno-xCkHO";
-  // Controller to manage the Youtube video
   late YoutubePlayerController playerController;
-  // Initialize the state
+
   @override
   void initState() {
-    final videoId = YoutubePlayer.convertUrlToId(videoURL);
-    // Initialize the youtube player controller with the video id
-    playerController = YoutubePlayerController(
-        initialVideoId: videoId!,
-        flags: const YoutubePlayerFlags(
-            autoPlay: false) // do not auto-play the video
-        );
     super.initState();
+    final videoId = YoutubePlayerController.convertUrlToId(videoURL) ?? "";
+    playerController = YoutubePlayerController.fromVideoId(
+      videoId: videoId,
+      autoPlay: false,
+      params: const YoutubePlayerParams(
+        showControls: true,
+        showFullscreenButton: false,
+      ),
+    );
   }
 
-// Method to seek forward 10 seconds
-  void seekForward() {
-    final currentPosition = playerController.value.position;
-    final duration = playerController.value.metaData.duration;
-    if (currentPosition.inSeconds + 10 < duration.inSeconds) {
-      playerController.seekTo(
-        currentPosition + const Duration(seconds: 10),
-      );
+  @override
+  void dispose() {
+    playerController.close();
+    super.dispose();
+  }
+
+  Future<void> seekForward() async {
+    final currentPosition = await playerController.currentTime;
+    final duration = await playerController.duration;
+    if (currentPosition + 10 < duration) {
+      playerController.seekTo(seconds: currentPosition + 10);
+    } else {
+      playerController.seekTo(seconds: duration);
     }
   }
 
-// Method to seek backward 10 seconds
-  void seekBackward() {
-    final currentPosition = playerController.value.position;
-    if (currentPosition.inSeconds - 10 > 0) {
-      playerController.seekTo(currentPosition - const Duration(seconds: 10));
+  Future<void> seekBackward() async {
+    final currentPosition = await playerController.currentTime;
+    if (currentPosition - 10 >= 0) {
+      playerController.seekTo(seconds: currentPosition - 10);
+    } else {
+      playerController.seekTo(seconds: 0);
     }
   }
 
@@ -55,25 +59,33 @@ class _YoutubeVideoPlayerFlutterState extends State<YoutubeVideoPlayerFlutter> {
         foregroundColor: Colors.white,
         title: const Text("Play YouTube Video on Flutter App"),
       ),
-      body: Stack(
+      body: Column(
         children: [
-          YoutubePlayer(controller: playerController),
-          Positioned(
-            top: 100,right: 100,left: 100,bottom: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: seekBackward,
-                  icon: const Icon(Icons.replay_10,size: 30,color: Colors.white54,),
+          YoutubePlayer(
+            controller: playerController,
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: seekBackward,
+                icon: const Icon(
+                  Icons.replay_10,
+                  size: 40,
+                  color: Colors.black87,
                 ),
-                const SizedBox(width: 30),
-                IconButton(
-                  onPressed: seekForward,
-                  icon: const Icon(Icons.forward_10,size: 30,color: Colors.white54,),
+              ),
+              const SizedBox(width: 30),
+              IconButton(
+                onPressed: seekForward,
+                icon: const Icon(
+                  Icons.forward_10,
+                  size: 40,
+                  color: Colors.black87,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/Utils/const.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/models/cats_model.dart';
-import 'package:flutter_example/Flutter%20UI/Pet%20App%20UI/pages/pets_detail_page.dart';
+import '../Utils/const.dart';
+import '../models/cats_model.dart';
+import 'pets_detail_page.dart';
 
 class PetsHomeScreen extends StatefulWidget {
   const PetsHomeScreen({super.key});
@@ -21,34 +19,38 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
     Icons.chat,
     Icons.person_outline_rounded,
   ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            headerParts(),
-            const SizedBox(height: 20),
-            joinNow(),
-            const SizedBox(height: 30),
-            categoryViewAll("Categories"),
-            const SizedBox(height: 25),
-            categoryItems(),
-            const SizedBox(height: 20),
-            categoryViewAll("Adopt Pet"),
-            const SizedBox(height: 10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(cats.length, (index) {
-                  final cat = cats[index];
-                  return petsItems(size, cat);
-                }),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              headerParts(),
+              const SizedBox(height: 20),
+              joinNow(),
+              const SizedBox(height: 30),
+              categoryViewAll("Categories"),
+              const SizedBox(height: 25),
+              categoryItems(),
+              const SizedBox(height: 20),
+              categoryViewAll("Adopt Pet"),
+              const SizedBox(height: 10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(cats.length, (index) {
+                    final cat = cats[index];
+                    return petsItems(size, cat);
+                  }),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
@@ -58,8 +60,12 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(
             icons.length,
-            (index) => GestureDetector(
-              onTap: () {},
+                (index) => GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
               child: Container(
                 height: 60,
                 width: 50,
@@ -79,35 +85,35 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
                         const SizedBox(height: 5),
                         selectedIndex == index
                             ? Container(
-                                height: 5,
-                                width: 5,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: blue,
-                                ),
-                              )
+                          height: 5,
+                          width: 5,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: blue,
+                          ),
+                        )
                             : Container(),
                       ],
                     ),
                     index == 2
                         ? Positioned(
-                            right: 0,
-                            top: -10,
-                            child: Container(
-                              padding: const EdgeInsets.all(5),
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: buttonColor,
-                              ),
-                              child: const Text(
-                                "4",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          )
+                      right: 0,
+                      top: -10,
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: buttonColor,
+                        ),
+                        child: const Text(
+                          "4",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
                         : Container()
                   ],
                 ),
@@ -250,12 +256,13 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           ),
           ...List.generate(
             categories.length,
-            (index) => Padding(
+                (index) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GestureDetector(
                 onTap: () {
-                  setState(() {});
-                  selectedCategory = index;
+                  setState(() {
+                    selectedCategory = index;
+                  });
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(

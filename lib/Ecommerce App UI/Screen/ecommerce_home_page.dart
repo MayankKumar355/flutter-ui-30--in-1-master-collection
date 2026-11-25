@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Model/category.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Screen/detail_screen.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Utils/colors.dart';
-import 'package:flutter_example/Flutter%20UI/Ecommerce%20App%20UI/Utils/size.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../Model/product_model.dart';
+import '../Utils/colors.dart';
+import '../Utils/size.dart';
+import 'detail_screen.dart';
 
 class EcommerceHomePage extends StatefulWidget {
   const EcommerceHomePage({super.key});
@@ -43,9 +40,10 @@ class _EcommerceHomePageState extends State<EcommerceHomePage> {
             fillColor: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 18),
             onPressed: () {},
-            child: SvgPicture.asset(
-              "image/ecommerce-image/menu.svg",
-              width: 20,
+            child: const Icon(
+              Icons.menu,
+              color: Colors.black,
+              size: 25,
             ),
           ),
         ),
@@ -94,7 +92,7 @@ class _EcommerceHomePageState extends State<EcommerceHomePage> {
             child: Row(
               children: [
                 const Text(
-                  "Poular",
+                  "Popular",
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 25,
@@ -139,8 +137,8 @@ class _EcommerceHomePageState extends State<EcommerceHomePage> {
                       height: SizeConfig.verticalSize * 30,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(product.image),
-                          fit: BoxFit.fill,
+                          image: NetworkImage(product.image),
+                          fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),

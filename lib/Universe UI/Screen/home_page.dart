@@ -1,7 +1,5 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_view/flutter_swiper_view.dart';
-
-
 import '../Model/universe_model.dart';
 import '../Utils/colors.dart';
 import 'planet_detail_page.dart';

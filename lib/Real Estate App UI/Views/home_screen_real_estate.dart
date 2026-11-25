@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Real%20Estate%20App%20UI/Model/real_estate_model.dart';
-import 'package:flutter_example/Flutter%20UI/Real%20Estate%20App%20UI/Views/house_detale_screen.dart';
-import 'package:flutter_example/Flutter%20UI/Real%20Estate%20App%20UI/colors.dart';
+
+import '../Model/real_estate_model.dart';
+import '../colors.dart';
+import 'house_detale_screen.dart';
 
 class HomeScreenRealEstate extends StatefulWidget {
   const HomeScreenRealEstate({super.key});

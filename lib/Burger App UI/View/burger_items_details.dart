@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/Flutter%20UI/Burger%20App%20UI/Model/burget_model.dart';
+
+import '../Model/burget_model.dart';
 
 class BurgerItemsDetails extends StatefulWidget {
   final Burger burger;
